@@ -4286,3 +4286,8 @@ Processing by UsersController#refer as HTML
   [1m[36m (6.6ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1[0m  [["referrer_id", 1]]
   Rendered users/refer.html.erb within layouts/application (14.7ms)
 Completed 200 OK in 134ms (Views: 52.8ms | ActiveRecord: 61.9ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (24.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 678ms (Views: 582.7ms | ActiveRecord: 59.3ms)
