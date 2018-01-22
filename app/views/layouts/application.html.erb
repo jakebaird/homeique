@@ -5,20 +5,19 @@
 <!--[if IE 9 ]>    <html class="ie9 <%= @bodyId %>"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="<%= @bodyId %>"> <!--<![endif]-->
 <head>
-  <title>Homeique is coming! Find property at wholesale value.</title>
+  <title>Syndica is coming! Find property at wholesale value.</title>
 
-        <meta property="og:title" content="Homeique - Group buying for property"/>
+        <meta property="og:title" content="Syndica - Group buying for property"/>
         <meta property="og:image" content="https://ibb.co/d4ckRw"/>  
-        <meta property="og:site_name" content="Homeique"/>
-        <meta property="og:description" content="Homeique is coming! Didn’t want to leave you all behind find property at wholesale value. Check it our here!" />
+        <meta property="og:site_name" content="Syndica"/>
+        <meta property="og:description" content="Syndica is coming! Didn’t want to leave you all behind find property at wholesale value. Check it our here!" />
+        <meta property="og:url" content="<%= root_url %>"/>
 
   <link rel="icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
   <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
 
-  <meta property="og:title" content="Great Property Opportunities are Coming!"/>
-  <meta property="og:description" content="Buying property is evolving. Check it out here."/>
-  <meta property="og:image" content="<%= asset_path("refer/truman.png") %>"/>
-  <meta property="og:url" content="<%= root_url %>"/>
+  
+ 
   <% if @is_mobile %>
     <% if @bodyId == 'home' %>
       <meta name="viewport" content="width=1600" />
