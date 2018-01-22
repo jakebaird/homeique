@@ -4296,3 +4296,33 @@ Processing by UsersController#refer as HTML
   [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
   Rendered users/refer.html.erb within layouts/application (25.5ms)
 Completed 200 OK in 171ms (Views: 119.4ms | ActiveRecord: 23.3ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 171ms (Views: 40.7ms | ActiveRecord: 111.9ms)
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (113.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+Redirected to http://localhost:3000/refer-a-friend
+Filter chain halted as :skip_first_page rendered or redirected
+Completed 302 Found in 286ms (ActiveRecord: 113.5ms)
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jake.baird@bcanational.com"]]
+  [1m[36m (8.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1[0m  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 156ms (Views: 134.8ms | ActiveRecord: 8.8ms)
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (149.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jake.baird@bcanational.com"]]
+Redirected to http://localhost:3000/refer-a-friend
+Filter chain halted as :skip_first_page rendered or redirected
+Completed 302 Found in 193ms (ActiveRecord: 149.0ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+  [1m[35m (6.7ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (83.7ms)
+Completed 200 OK in 263ms (Views: 232.8ms | ActiveRecord: 10.5ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+  [1m[35m (6.8ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 46ms (Views: 36.8ms | ActiveRecord: 7.1ms)
