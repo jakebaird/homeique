@@ -7,8 +7,8 @@ Prelaunchr::Application.initialize!
 Rails.logger = Logger.new(STDOUT)
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => 'launcher',
-  :password => 'Baird2018',
+  :user_name => 'test',
+  :password => 'test',
   :domain => 'homique.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
