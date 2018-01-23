@@ -4326,3 +4326,101 @@ Processing by UsersController#refer as HTML
   [1m[35m (6.8ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
   Rendered users/refer.html.erb within layouts/application (9.6ms)
 Completed 200 OK in 46ms (Views: 36.8ms | ActiveRecord: 7.1ms)
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (54.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+Redirected to http://localhost:3000/refer-a-friend
+Filter chain halted as :skip_first_page rendered or redirected
+Completed 302 Found in 118ms (ActiveRecord: 54.9ms)
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jake.baird@bcanational.com"]]
+  [1m[36m (23.0ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1[0m  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (88.5ms)
+Completed 200 OK in 240ms (Views: 206.1ms | ActiveRecord: 23.3ms)
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jake.baird@bcanational.com"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1[0m  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.9ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (118.3ms)
+Completed 200 OK in 165ms (Views: 150.4ms | ActiveRecord: 0.0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XQHJ6mUHXKmOTQc4668C8UCyQqyqmqKnuOmYz65MjWY1Ivg/2b/zbNcnVsjmoO+Q7f7ViS+yLgiiPe1YjqnC2A==", "user"=>{"email"=>"jake@lnchr.co"}}
+  [1m[35m (31.9ms)[0m  BEGIN
+  [1m[36mUser Exists (45.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@lnchr.co' LIMIT 1[0m
+  [1m[35mUser Exists (1.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1[0m  [["referral_code", "b54a75e4ca"]]
+  [1m[35mSQL (20.2ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "jake@lnchr.co"], ["created_at", "2018-01-23 02:37:00.902518"], ["updated_at", "2018-01-23 02:37:00.902518"], ["referral_code", "b54a75e4ca"]]
+  [1m[36mSQL (25.8ms)[0m  [1mINSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jake@lnchr.co\n    id: '6'\n    referral_code: b54a75e4ca\n    created_at: &1 2018-01-23 02:37:00.902518000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jake@lnchr.co\n          type: *2\n          value: jake@lnchr.co\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '6'\n          type: *3\n          value: 6\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: b54a75e4ca\n          type: *2\n          value: b54a75e4ca\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 02:37:01.078502"], ["created_at", "2018-01-23 02:37:01.080148"], ["updated_at", "2018-01-23 02:37:01.080148"]]
+  [1m[35m (3.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 309ms (ActiveRecord: 168.5ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake@lnchr.co"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 6]]
+  Rendered users/refer.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.6ms)
+  [1m[36m (8.8ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (29.6ms)[0m  SELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@example.com' LIMIT 1
+  [1m[36mSQL (33.1ms)[0m  [1mINSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$10$4zCifKxgxeRuNX.ViHFWHuKD2GTh58OK/dUYVwn4hiGbGW5vgXQX."], ["created_at", "2018-01-23 03:07:55.908725"], ["updated_at", "2018-01-23 03:07:55.908725"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (27.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+Redirected to http://localhost:3000/refer-a-friend
+Filter chain halted as :skip_first_page rendered or redirected
+Completed 302 Found in 50ms (ActiveRecord: 27.6ms)
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jake.baird@bcanational.com"]]
+  [1m[36m (22.7ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1[0m  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 122ms (Views: 92.4ms | ActiveRecord: 23.1ms)
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 105ms (ActiveRecord: 0.0ms)
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/devise/shared/_links.erb (9.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (165.8ms)
+Completed 200 OK in 601ms (Views: 493.1ms | ActiveRecord: 56.7ms)
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YCRye1K6BftXg6b27OeGKn1rJFLCtHw5ynqfJSKgA4tQhkBr+uvdBgULeC7Y+RgVlfoIZZSyu1+/ddMzu5kCGw==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mAdminUser Load (11.0ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (7.6ms)[0m  UPDATE "admin_users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "admin_users"."id" = $7  [["last_sign_in_at", "2018-01-23 03:10:05.919825"], ["current_sign_in_at", "2018-01-23 03:10:05.919825"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2018-01-23 03:10:05.922731"], ["id", 2]]
+  [1m[36m (7.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 263ms (ActiveRecord: 27.5ms)
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (120.5ms)
+Completed 200 OK in 135ms (Views: 128.1ms | ActiveRecord: 0.5ms)
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (24.1ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" desc LIMIT 30 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (470.4ms)
+Completed 200 OK in 501ms (Views: 465.8ms | ActiveRecord: 26.6ms)
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (14.2ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3[0m  [["resource_type", "User"], ["resource_id", "6"], ["namespace", "admin"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3  [["resource_type", "User"], ["resource_id", "6"], ["namespace", "admin"]]
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/show.html.arb (200.4ms)
+Completed 200 OK in 218ms (Views: 190.1ms | ActiveRecord: 23.3ms)
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "admin_users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (165.9ms)
+Completed 200 OK in 182ms (Views: 177.0ms | ActiveRecord: 1.9ms)
+Processing by Rails::MailersController#preview as HTML
+  Parameters: {"path"=>"user_notifier"}
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/railties-4.2.5.2/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 39ms (Views: 33.9ms | ActiveRecord: 0.0ms)
