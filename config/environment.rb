@@ -18,7 +18,6 @@ ActionMailer::Base.smtp_settings = {
 }
 
 
-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
 
 
 
