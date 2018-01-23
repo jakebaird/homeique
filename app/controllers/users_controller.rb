@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user.referrer = User.find_by_referral_code(ref_code) if ref_code
 
     if @user.save
+      UserNotifier.send_signup_email(@user).deliver
       cookies[:h_email] = { value: @user.email }
       redirect_to '/refer-a-friend'
     else
@@ -62,20 +63,6 @@ class UsersController < ApplicationController
       cookies.delete :h_email
     end
   end
-
-class UsersController < ApplicationController
-  def create
-    # Create the user from params
-    @user = User.new(params[:user])
-    if @user.save
-      # Deliver the signup email
-      UserNotifier.send_signup_email(@user).deliver
-      redirect_to(@user, :notice => 'User created')
-    else
-      render :action => 'new'
-    end
-  end
-end
 
   def handle_ip
     # Prevent someone from gaming the site by referring themselves.
