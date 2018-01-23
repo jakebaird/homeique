@@ -53,5 +53,8 @@ module Prelaunchr
 
     # decides whether the prelaunch campaign has ended or not
     config.ended = ENV['CAMPAIGN_ENDED'].to_s == 'true'
+
+    # Load application ENV vars and merge with existing ENV vars. Loaded here so can use values in initializers.
+    ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
   end
 end

@@ -4510,3 +4510,2209 @@ Completed 200 OK in 36ms (Views: 22.7ms | ActiveRecord: 11.9ms)
   Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (14.5ms)
   Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
   Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (96.8ms)
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (24.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jake.baird@bcanational.com"]]
+Redirected to http://localhost:3000/refer-a-friend
+Filter chain halted as :skip_first_page rendered or redirected
+Completed 302 Found in 202ms (ActiveRecord: 175.6ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+  [1m[35m (6.5ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 104ms (Views: 85.4ms | ActiveRecord: 6.9ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake.baird@bcanational.com"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 1]]
+  Rendered users/refer.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.6ms)
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (1.7ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (222.5ms)
+Completed 200 OK in 278ms (Views: 234.3ms | ActiveRecord: 17.5ms)
+Processing by Admin::UsersController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (25.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (237.9ms)
+Completed 200 OK in 256ms (Views: 222.9ms | ActiveRecord: 27.2ms)
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mAdminUser Load (26.6ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (26.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (24.6ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3  [["resource_type", "User"], ["resource_id", "7"], ["namespace", "admin"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3[0m  [["resource_type", "User"], ["resource_id", "7"], ["namespace", "admin"]]
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/show.html.arb (521.2ms)
+Completed 200 OK in 645ms (Views: 515.8ms | ActiveRecord: 77.5ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nf9cmC6Nhtu4LsYROLo2CE499XxES3oe/Y/zGoM4j7BgR9CNjNCMHSsglqtJzJqsnnNyS5/bFG3LZQrDXrCC5Q==", "user"=>{"email"=>"jake@launcherr.com"}}
+  [1m[35m (46.1ms)[0m  BEGIN
+  [1m[36mUser Exists (40.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@launcherr.com' LIMIT 1[0m
+  [1m[35mUser Exists (1.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Error saving user with email, jake@launcherr.com
+Redirected to http://localhost:3000/
+Completed 302 Found in 109ms (ActiveRecord: 88.2ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zwpqdiiNk3+gZwkTgzrIarRPu6wkmeNVe/EO7a9kVtuasuZjitCZuTNpWanyTGTOZAE8m/8JjSZNG/c0cuxbjg==", "user"=>{"email"=>"tester@test.com"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tester@test.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1[0m  [["referral_code", "42fe745c8a"]]
+  [1m[35mSQL (50.4ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "tester@test.com"], ["created_at", "2018-01-23 05:50:24.205288"], ["updated_at", "2018-01-23 05:50:24.205288"], ["referral_code", "42fe745c8a"]]
+  [1m[36mSQL (27.2ms)[0m  [1mINSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: tester@test.com\n    id: '8'\n    referral_code: 42fe745c8a\n    created_at: &1 2018-01-23 05:50:24.205288000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: tester@test.com\n          type: *2\n          value: tester@test.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '8'\n          type: *3\n          value: 8\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 42fe745c8a\n          type: *2\n          value: 42fe745c8a\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 05:50:24.330584"], ["created_at", "2018-01-23 05:50:24.331716"], ["updated_at", "2018-01-23 05:50:24.331716"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+  Rendered user_notifier/send_signup_email.html.erb (19.7ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 62.5ms
+Completed 500 Internal Server Error in 305ms (ActiveRecord: 85.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (87.6ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zwpqdiiNk3+gZwkTgzrIarRPu6wkmeNVe/EO7a9kVtuasuZjitCZuTNpWanyTGTOZAE8m/8JjSZNG/c0cuxbjg==", "user"=>{"email"=>"tester@test.com"}}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'tester@test.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Error saving user with email, tester@test.com
+Redirected to http://localhost:3000/
+Completed 302 Found in 45ms (ActiveRecord: 2.1ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 75ms (Views: 72.1ms | ActiveRecord: 0.0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XdWPTWLOculpEFvNzQlXYgVSuNJUXD3sS82jkEH5iKMIbQNYwJN4L/oeC3e8f/vG1Rw/5Y/MU599J1pJnHGF9g==", "user"=>{"email"=>"test@test.com"}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test@test.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Error saving user with email, test@test.com
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 2.1ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"94x43AbgY3QAYWopkCoW9RrfwI28bQV2hkaVT/tYe4uiNPTJpL1pspNvOpPhXLpRypFHumf9awWwrGyWJtB23g==", "user"=>{"email"=>"jake@testing.com"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@testing.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1  [["referral_code", "8083d4d8ca"]]
+  [1m[36mSQL (13.0ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jake@testing.com"], ["created_at", "2018-01-23 05:52:03.076293"], ["updated_at", "2018-01-23 05:52:03.076293"], ["referral_code", "8083d4d8ca"]]
+  [1m[35mSQL (7.9ms)[0m  INSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jake@testing.com\n    id: '9'\n    referral_code: 8083d4d8ca\n    created_at: &1 2018-01-23 05:52:03.076293000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jake@testing.com\n          type: *2\n          value: jake@testing.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '9'\n          type: *3\n          value: 9\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 8083d4d8ca\n          type: *2\n          value: 8083d4d8ca\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 05:52:03.115093"], ["created_at", "2018-01-23 05:52:03.115466"], ["updated_at", "2018-01-23 05:52:03.115466"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  Rendered user_notifier/send_signup_email.html.erb (25.6ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 48.1ms
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 23.1ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (21.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (75.0ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (160.1ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"94x43AbgY3QAYWopkCoW9RrfwI28bQV2hkaVT/tYe4uiNPTJpL1pspNvOpPhXLpRypFHumf9awWwrGyWJtB23g==", "user"=>{"email"=>"jake@testing.com.au"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@testing.com.au' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1[0m  [["referral_code", "465a0aae20"]]
+  [1m[35mSQL (9.3ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "jake@testing.com.au"], ["created_at", "2018-01-23 05:52:47.963500"], ["updated_at", "2018-01-23 05:52:47.963500"], ["referral_code", "465a0aae20"]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jake@testing.com.au\n    id: '10'\n    referral_code: 465a0aae20\n    created_at: &1 2018-01-23 05:52:47.963500000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jake@testing.com.au\n          type: *2\n          value: jake@testing.com.au\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '10'\n          type: *3\n          value: 10\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 465a0aae20\n          type: *2\n          value: 465a0aae20\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 05:52:47.981419"], ["created_at", "2018-01-23 05:52:47.981631"], ["updated_at", "2018-01-23 05:52:47.981631"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  Rendered user_notifier/send_signup_email.html.erb (18.4ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 40.9ms
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 12.2ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.7ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.9ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"94x43AbgY3QAYWopkCoW9RrfwI28bQV2hkaVT/tYe4uiNPTJpL1pspNvOpPhXLpRypFHumf9awWwrGyWJtB23g==", "user"=>{"email"=>"jake@baird.com"}}
+  [1m[36m (19.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (31.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@baird.com' LIMIT 1
+  [1m[36mUser Exists (7.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1  [["referral_code", "611caee58e"]]
+  [1m[36mSQL (9.8ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jake@baird.com"], ["created_at", "2018-01-23 05:57:57.041857"], ["updated_at", "2018-01-23 05:57:57.041857"], ["referral_code", "611caee58e"]]
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jake@baird.com\n    id: '11'\n    referral_code: 611caee58e\n    created_at: &1 2018-01-23 05:57:57.041857000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jake@baird.com\n          type: *2\n          value: jake@baird.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '11'\n          type: *3\n          value: 11\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 611caee58e\n          type: *2\n          value: 611caee58e\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 05:57:57.092017"], ["created_at", "2018-01-23 05:57:57.092434"], ["updated_at", "2018-01-23 05:57:57.092434"]]
+  [1m[36m (13.3ms)[0m  [1mCOMMIT[0m
+  Rendered user_notifier/send_signup_email.html.erb (25.0ms)
+  Rendered user_notifier/send_signup_email.html (35.1ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 111.7ms
+Completed 500 Internal Server Error in 292ms (ActiveRecord: 89.0ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (22.3ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (96.6ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"94x43AbgY3QAYWopkCoW9RrfwI28bQV2hkaVT/tYe4uiNPTJpL1pspNvOpPhXLpRypFHumf9awWwrGyWJtB23g==", "user"=>{"email"=>"jake@bairds.com"}}
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Exists (2.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@bairds.com' LIMIT 1[0m
+  [1m[35mUser Exists (1.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1[0m  [["referral_code", "4704fb12c9"]]
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "jake@bairds.com"], ["created_at", "2018-01-23 05:58:47.842376"], ["updated_at", "2018-01-23 05:58:47.842376"], ["referral_code", "4704fb12c9"]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jake@bairds.com\n    id: '12'\n    referral_code: 4704fb12c9\n    created_at: &1 2018-01-23 05:58:47.842376000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jake@bairds.com\n          type: *2\n          value: jake@bairds.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '12'\n          type: *3\n          value: 12\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 4704fb12c9\n          type: *2\n          value: 4704fb12c9\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 05:58:47.877714"], ["created_at", "2018-01-23 05:58:47.878121"], ["updated_at", "2018-01-23 05:58:47.878121"]]
+  [1m[35m (9.0ms)[0m  COMMIT
+  Rendered user_notifier/send_signup_email.html.erb (9.8ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 1136.5ms
+
+Sent mail to jake@bairds.com (3829.8ms)
+Date: Tue, 23 Jan 2018 15:58:49 +1000
+From: jake@goodleads.com.au
+To: jake@bairds.com
+Message-ID: <5a66cf19bc61_113ee3ff35a17f68c104f1@Jakes-MacBook-Air.local.mail>
+Subject: Thanks for signing up for our amazing app
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title>Notify</title>
+
+<style type="text/css">
+
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+
+*{
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.ReadMsgBody
+{width: 100%; background-color: #ffffff;}
+.ExternalClass
+{width: 100%; background-color: #ffffff;}
+body{width: 100%; height: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;}
+html{width: 100%; background-color: #ffffff;}
+
+@font-face {
+    font-family: 'proxima_novalight';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_nova_rgregular'; src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_novasemibold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {
+	font-family: 'proxima_nova_rgbold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+	
+@font-face {
+    font-family: 'proxima_novablack';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {font-family: 'proxima_novathin';src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+p {padding: 0!important; margin-top: 0!important; margin-right: 0!important; margin-bottom: 0!important; margin-left: 0!important; }
+
+.hover:hover {opacity:0.85;filter:alpha(opacity=85);}
+
+.image77 img {width: 77px; height: auto;}
+.avatar125 img {width: 125px; height: auto;}
+.icon61 img {width: 61px; height: auto;}
+.logo img {width: 75px; height: auto;}
+.icon18 img {width: 18px; height: auto;}
+
+</style>
+
+<!-- @media only screen and (max-width: 640px) 
+		   {*/
+		   -->
+<style type="text/css"> @media only screen and (max-width: 640px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		
+} </style>
+<!--
+
+@media only screen and (max-width: 479px) 
+		   {
+		   -->
+<style type="text/css"> @media only screen and (max-width: 479px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		table[class=full] {width: 100%!important; clear: both; }
+		table[class=mobile] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		.erase {display: none;}
+				
+		}
+} </style>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<!-- Notification 1  -->
+<div style="display: none" id="element_023959988981649527"></div></p></div><!-- End Notification 1 -->
+
+<!-- Notification 2  -->
+<div style="display: none" id="element_09498955956657207"></div></p></div><!-- End Notification 2 -->
+
+<!-- Notification 3 -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#303030"style="background-color: rgb(48, 48, 48);">
+	<tr>
+		<td align="center" style="background-image: url('http://rocketway.net/themebuilder/template/templates/notify/images/not3_bg_image.jpg'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: #303030;"id="not3">
+		
+			
+			<!-- Mobile Wrapper -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+				<tr>
+					<td width="100%" align="center">
+					
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+						
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-radius: 5px; box-shadow: rgba(68, 68, 68, 0.2) 0px 0px 7px; background-color: rgb(255, 255, 255);">
+							<tr>
+								<td width="352" valign="middle" align="center">
+									
+									
+									<div class="sortable_inner ui-sortable">
+									<!-- Start Top -->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+												
+												<!-- Header Text --> 
+												<table width="300" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="30"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]--><a href="syndica.com.au"><img src="https://ibb.co/nHkU8b" alt="syndica" border="0" /></a><!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="40"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 43px; color: #3f4345; line-height: 48px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Thanks!<!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="45"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: #ffffff; line-height: 34px;"class="fullCenter"   cu-identify="element_08317003245438217"><span style="font-family: proxima_nova_rgregular, Helvetica;"><b>You'll be first to know when we launch!</b></span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+																		
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td valign="middle" align="center" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; line-height: 24px;"class="fullCenter"   cu-identify="element_06862991406004695"><span style="font-family: proxima_nova_rgregular, Helvetica;"><span style="font-weight: bold;">Property is evolving</span>. Tell your friends and get access to wholesale property, exclusive opportunities and rewards</span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<!----------------- Button Center ----------------->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" align="center" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td>
+																		<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"> 
+																			<tr> 
+																				<td align="center" height="40"bgcolor="#f0f0f0" style="border-radius: 20px; padding-left: 22px; padding-right: 22px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(34, 32, 32); background-color: rgb(240, 240, 240);">
+																					<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
+																						<a href="#" style="color: #222020; font-size:16px; text-decoration: none; line-height:34px; width:100%;" cu-identify="element_0032609847889129906">{:host=&gt;nil}?ref=4704fb12c9</a>
+																					<!--[if !mso]><!--></span><!--<![endif]-->
+																				</td> 
+																			</tr> 
+																		</table> 
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="15"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<div style="display: none" id="element_02803016962145741"></div></p></div>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;" class="fullCenter"   cu-identify="element_03382753605643136">	
+																		</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(103, 191, 172);" class="pad15">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" height="50"></td>
+													</tr>
+												</table>
+																				
+											</td>
+										</tr>
+									</table><!-- End Top -->
+									</div>
+									
+								</td>
+							</tr>
+						</table>
+						
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" object="drag-module-small">
+							<tr>
+								<td width="352" valign="middle" align="center">
+								
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+										<tr>
+											<td width="352" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter" ><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]--><!--subscribe--><a href="" style="text-decoration: none; color: #3f4345;" cu-identify="element_05767064471161076"></a><!--unsub--><!--[if !mso]><!--></span><!--<![endif]-->
+											<span  cu-identify="element_04255468931522093"><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]-->Developer? <a href="mailto:hello@homeique.com">hello@homeique.com</a><!--[if !mso]><!--></span><!--<![endif]--></span>
+											</td>
+										</tr>
+									</table>
+																	
+								</td>
+							</tr>
+						</table>
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small" cu-identifier="element_03806254836422256">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+							<tr>
+								<td width="352" height="1" style="font-size: 1px; line-height: 1px;">&nbsp;</td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+			
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table><!-- End Notification 3 -->
+
+<!-- Notification 4  -->
+<div style="display: none" id="element_04438567014494732"></div></p></div><!-- End Notification 4 -->
+
+<!-- Notification 5 -->
+<div style="display: none" id="element_0028553052569139314"></div></p></div><!-- End Notification 5 -->
+
+<!-- Notification 6 -->
+<div style="display: none" id="element_04724488875796675"></div></p></div><!-- End Notification 6 -->
+</div>
+</body></html>	<style>body{ background: none !important; } </style>
+Completed 500 Internal Server Error in 5057ms (ActiveRecord: 15.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (81.2ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"94x43AbgY3QAYWopkCoW9RrfwI28bQV2hkaVT/tYe4uiNPTJpL1pspNvOpPhXLpRypFHumf9awWwrGyWJtB23g==", "user"=>{"email"=>"jake@bairds.com"}}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@bairds.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Error saving user with email, jake@bairds.com
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms (ActiveRecord: 2.4ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fX+vAzGbnmeGnnMvrLRUyRZVh7IE/z/CA0fNsPRJxeooxyMWk8aUoRWQI5XdwvhtxhsAhd9vUbE1rTRpKcHIvw==", "user"=>{"email"=>"cup@baird.com"}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'cup@baird.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (11.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1  [["referral_code", "f284c76486"]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "cup@baird.com"], ["created_at", "2018-01-23 06:00:16.396683"], ["updated_at", "2018-01-23 06:00:16.396683"], ["referral_code", "f284c76486"]]
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: cup@baird.com\n    id: '13'\n    referral_code: f284c76486\n    created_at: &1 2018-01-23 06:00:16.396683000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: cup@baird.com\n          type: *2\n          value: cup@baird.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '13'\n          type: *3\n          value: 13\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: f284c76486\n          type: *2\n          value: f284c76486\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 06:00:16.433586"], ["created_at", "2018-01-23 06:00:16.433917"], ["updated_at", "2018-01-23 06:00:16.433917"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  Rendered user_notifier/send_signup_email.html.erb (0.5ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 34.5ms
+
+Sent mail to cup@baird.com (1548.0ms)
+Date: Tue, 23 Jan 2018 16:00:16 +1000
+From: jake@goodleads.com.au
+To: cup@baird.com
+Message-ID: <5a66cf70758ba_113ee3ff35f34ada41058b@Jakes-MacBook-Air.local.mail>
+Subject: Thanks for signing up for our amazing app
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title>Notify</title>
+
+<style type="text/css">
+
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+
+*{
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.ReadMsgBody
+{width: 100%; background-color: #ffffff;}
+.ExternalClass
+{width: 100%; background-color: #ffffff;}
+body{width: 100%; height: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;}
+html{width: 100%; background-color: #ffffff;}
+
+@font-face {
+    font-family: 'proxima_novalight';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_nova_rgregular'; src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_novasemibold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {
+	font-family: 'proxima_nova_rgbold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+	
+@font-face {
+    font-family: 'proxima_novablack';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {font-family: 'proxima_novathin';src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+p {padding: 0!important; margin-top: 0!important; margin-right: 0!important; margin-bottom: 0!important; margin-left: 0!important; }
+
+.hover:hover {opacity:0.85;filter:alpha(opacity=85);}
+
+.image77 img {width: 77px; height: auto;}
+.avatar125 img {width: 125px; height: auto;}
+.icon61 img {width: 61px; height: auto;}
+.logo img {width: 75px; height: auto;}
+.icon18 img {width: 18px; height: auto;}
+
+</style>
+
+<!-- @media only screen and (max-width: 640px) 
+		   {*/
+		   -->
+<style type="text/css"> @media only screen and (max-width: 640px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		
+} </style>
+<!--
+
+@media only screen and (max-width: 479px) 
+		   {
+		   -->
+<style type="text/css"> @media only screen and (max-width: 479px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		table[class=full] {width: 100%!important; clear: both; }
+		table[class=mobile] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		.erase {display: none;}
+				
+		}
+} </style>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<!-- Notification 1  -->
+<div style="display: none" id="element_023959988981649527"></div></p></div><!-- End Notification 1 -->
+
+<!-- Notification 2  -->
+<div style="display: none" id="element_09498955956657207"></div></p></div><!-- End Notification 2 -->
+
+<!-- Notification 3 -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#303030"style="background-color: rgb(48, 48, 48);">
+	<tr>
+		<td align="center" style="background-image: url('http://rocketway.net/themebuilder/template/templates/notify/images/not3_bg_image.jpg'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: #303030;"id="not3">
+		
+			
+			<!-- Mobile Wrapper -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+				<tr>
+					<td width="100%" align="center">
+					
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+						
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-radius: 5px; box-shadow: rgba(68, 68, 68, 0.2) 0px 0px 7px; background-color: rgb(255, 255, 255);">
+							<tr>
+								<td width="352" valign="middle" align="center">
+									
+									
+									<div class="sortable_inner ui-sortable">
+									<!-- Start Top -->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+												
+												<!-- Header Text --> 
+												<table width="300" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="30"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]--><a href="syndica.com.au"><img src="https://ibb.co/nHkU8b" alt="syndica" border="0" /></a><!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="40"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 43px; color: #3f4345; line-height: 48px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Thanks!<!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="45"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: #ffffff; line-height: 34px;"class="fullCenter"   cu-identify="element_08317003245438217"><span style="font-family: proxima_nova_rgregular, Helvetica;"><b>You'll be first to know when we launch!</b></span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+																		
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td valign="middle" align="center" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; line-height: 24px;"class="fullCenter"   cu-identify="element_06862991406004695"><span style="font-family: proxima_nova_rgregular, Helvetica;"><span style="font-weight: bold;">Property is evolving</span>. Tell your friends and get access to wholesale property, exclusive opportunities and rewards</span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<!----------------- Button Center ----------------->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" align="center" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td>
+																		<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"> 
+																			<tr> 
+																				<td align="center" height="40"bgcolor="#f0f0f0" style="border-radius: 20px; padding-left: 22px; padding-right: 22px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(34, 32, 32); background-color: rgb(240, 240, 240);">
+																					<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
+																						<a href="#" style="color: #222020; font-size:16px; text-decoration: none; line-height:34px; width:100%;" cu-identify="element_0032609847889129906">{:host=&gt;nil}?ref=f284c76486</a>
+																					<!--[if !mso]><!--></span><!--<![endif]-->
+																				</td> 
+																			</tr> 
+																		</table> 
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="15"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<div style="display: none" id="element_02803016962145741"></div></p></div>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;" class="fullCenter"   cu-identify="element_03382753605643136">	
+																		</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(103, 191, 172);" class="pad15">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" height="50"></td>
+													</tr>
+												</table>
+																				
+											</td>
+										</tr>
+									</table><!-- End Top -->
+									</div>
+									
+								</td>
+							</tr>
+						</table>
+						
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" object="drag-module-small">
+							<tr>
+								<td width="352" valign="middle" align="center">
+								
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+										<tr>
+											<td width="352" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter" ><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]--><!--subscribe--><a href="" style="text-decoration: none; color: #3f4345;" cu-identify="element_05767064471161076"></a><!--unsub--><!--[if !mso]><!--></span><!--<![endif]-->
+											<span  cu-identify="element_04255468931522093"><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]-->Developer? <a href="mailto:hello@homeique.com">hello@homeique.com</a><!--[if !mso]><!--></span><!--<![endif]--></span>
+											</td>
+										</tr>
+									</table>
+																	
+								</td>
+							</tr>
+						</table>
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small" cu-identifier="element_03806254836422256">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+							<tr>
+								<td width="352" height="1" style="font-size: 1px; line-height: 1px;">&nbsp;</td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+			
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table><!-- End Notification 3 -->
+
+<!-- Notification 4  -->
+<div style="display: none" id="element_04438567014494732"></div></p></div><!-- End Notification 4 -->
+
+<!-- Notification 5 -->
+<div style="display: none" id="element_0028553052569139314"></div></p></div><!-- End Notification 5 -->
+
+<!-- Notification 6 -->
+<div style="display: none" id="element_04724488875796675"></div></p></div><!-- End Notification 6 -->
+</div>
+</body></html>	<style>body{ background: none !important; } </style>
+Completed 500 Internal Server Error in 1634ms (ActiveRecord: 15.7ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.7ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fX+vAzGbnmeGnnMvrLRUyRZVh7IE/z/CA0fNsPRJxeooxyMWk8aUoRWQI5XdwvhtxhsAhd9vUbE1rTRpKcHIvw==", "user"=>{"email"=>"jakes@baird.com"}}
+  [1m[35m (18.2ms)[0m  BEGIN
+  [1m[36mUser Exists (15.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jakes@baird.com' LIMIT 1[0m
+  [1m[35mUser Exists (2.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1[0m  [["referral_code", "3b8cfc944b"]]
+  [1m[35mSQL (8.8ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "jakes@baird.com"], ["created_at", "2018-01-23 06:08:39.548247"], ["updated_at", "2018-01-23 06:08:39.548247"], ["referral_code", "3b8cfc944b"]]
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jakes@baird.com\n    id: '14'\n    referral_code: 3b8cfc944b\n    created_at: &1 2018-01-23 06:08:39.548247000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jakes@baird.com\n          type: *2\n          value: jakes@baird.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '14'\n          type: *3\n          value: 14\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 3b8cfc944b\n          type: *2\n          value: 3b8cfc944b\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 06:08:39.591190"], ["created_at", "2018-01-23 06:08:39.591782"], ["updated_at", "2018-01-23 06:08:39.591782"]]
+  [1m[35m (7.1ms)[0m  COMMIT
+  Rendered user_notifier/send_signup_email.html.erb (1.5ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 37.3ms
+
+Sent mail to jakes@baird.com (1612.9ms)
+Date: Tue, 23 Jan 2018 16:08:39 +1000
+From: jake@goodleads.com.au
+To: jakes@baird.com
+Message-ID: <5a66d167a0017_113ee3ff35fd478fc106af@Jakes-MacBook-Air.local.mail>
+Subject: Thanks for signing up for our amazing app
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title>Notify</title>
+
+<style type="text/css">
+
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+
+*{
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.ReadMsgBody
+{width: 100%; background-color: #ffffff;}
+.ExternalClass
+{width: 100%; background-color: #ffffff;}
+body{width: 100%; height: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;}
+html{width: 100%; background-color: #ffffff;}
+
+@font-face {
+    font-family: 'proxima_novalight';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_nova_rgregular'; src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_novasemibold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {
+	font-family: 'proxima_nova_rgbold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+	
+@font-face {
+    font-family: 'proxima_novablack';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {font-family: 'proxima_novathin';src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+p {padding: 0!important; margin-top: 0!important; margin-right: 0!important; margin-bottom: 0!important; margin-left: 0!important; }
+
+.hover:hover {opacity:0.85;filter:alpha(opacity=85);}
+
+.image77 img {width: 77px; height: auto;}
+.avatar125 img {width: 125px; height: auto;}
+.icon61 img {width: 61px; height: auto;}
+.logo img {width: 75px; height: auto;}
+.icon18 img {width: 18px; height: auto;}
+
+</style>
+
+<!-- @media only screen and (max-width: 640px) 
+		   {*/
+		   -->
+<style type="text/css"> @media only screen and (max-width: 640px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		
+} </style>
+<!--
+
+@media only screen and (max-width: 479px) 
+		   {
+		   -->
+<style type="text/css"> @media only screen and (max-width: 479px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		table[class=full] {width: 100%!important; clear: both; }
+		table[class=mobile] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		.erase {display: none;}
+				
+		}
+} </style>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<!-- Notification 1  -->
+<div style="display: none" id="element_023959988981649527"></div></p></div><!-- End Notification 1 -->
+
+<!-- Notification 2  -->
+<div style="display: none" id="element_09498955956657207"></div></p></div><!-- End Notification 2 -->
+
+<!-- Notification 3 -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#303030"style="background-color: rgb(48, 48, 48);">
+	<tr>
+		<td align="center" style="background-image: url('http://rocketway.net/themebuilder/template/templates/notify/images/not3_bg_image.jpg'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: #303030;"id="not3">
+		
+			
+			<!-- Mobile Wrapper -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+				<tr>
+					<td width="100%" align="center">
+					
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+						
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-radius: 5px; box-shadow: rgba(68, 68, 68, 0.2) 0px 0px 7px; background-color: rgb(255, 255, 255);">
+							<tr>
+								<td width="352" valign="middle" align="center">
+									
+									
+									<div class="sortable_inner ui-sortable">
+									<!-- Start Top -->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+												
+												<!-- Header Text --> 
+												<table width="300" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="30"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]--><a href="syndica.com.au"><img src="https://ibb.co/nHkU8b" alt="syndica" border="0" /></a><!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="40"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 43px; color: #3f4345; line-height: 48px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Thanks!<!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="45"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: #ffffff; line-height: 34px;"class="fullCenter"   cu-identify="element_08317003245438217"><span style="font-family: proxima_nova_rgregular, Helvetica;"><b>You'll be first to know when we launch!</b></span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+																		
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td valign="middle" align="center" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; line-height: 24px;"class="fullCenter"   cu-identify="element_06862991406004695"><span style="font-family: proxima_nova_rgregular, Helvetica;"><span style="font-weight: bold;">Property is evolving</span>. Tell your friends and get access to wholesale property, exclusive opportunities and rewards</span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<!----------------- Button Center ----------------->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" align="center" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td>
+																		<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"> 
+																			<tr> 
+																				<td align="center" height="40"bgcolor="#f0f0f0" style="border-radius: 20px; padding-left: 22px; padding-right: 22px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(34, 32, 32); background-color: rgb(240, 240, 240);">
+																					<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
+																						<a href="#" style="color: #222020; font-size:16px; text-decoration: none; line-height:34px; width:100%;" cu-identify="element_0032609847889129906">{:host=&gt;nil}?ref=3b8cfc944b</a>
+																					<!--[if !mso]><!--></span><!--<![endif]-->
+																				</td> 
+																			</tr> 
+																		</table> 
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="15"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<div style="display: none" id="element_02803016962145741"></div></p></div>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;" class="fullCenter"   cu-identify="element_03382753605643136">	
+																		</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(103, 191, 172);" class="pad15">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" height="50"></td>
+													</tr>
+												</table>
+																				
+											</td>
+										</tr>
+									</table><!-- End Top -->
+									</div>
+									
+								</td>
+							</tr>
+						</table>
+						
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" object="drag-module-small">
+							<tr>
+								<td width="352" valign="middle" align="center">
+								
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+										<tr>
+											<td width="352" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter" ><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]--><!--subscribe--><a href="" style="text-decoration: none; color: #3f4345;" cu-identify="element_05767064471161076"></a><!--unsub--><!--[if !mso]><!--></span><!--<![endif]-->
+											<span  cu-identify="element_04255468931522093"><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]-->Developer? <a href="mailto:hello@homeique.com">hello@homeique.com</a><!--[if !mso]><!--></span><!--<![endif]--></span>
+											</td>
+										</tr>
+									</table>
+																	
+								</td>
+							</tr>
+						</table>
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small" cu-identifier="element_03806254836422256">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+							<tr>
+								<td width="352" height="1" style="font-size: 1px; line-height: 1px;">&nbsp;</td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+			
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table><!-- End Notification 3 -->
+
+<!-- Notification 4  -->
+<div style="display: none" id="element_04438567014494732"></div></p></div><!-- End Notification 4 -->
+
+<!-- Notification 5 -->
+<div style="display: none" id="element_0028553052569139314"></div></p></div><!-- End Notification 5 -->
+
+<!-- Notification 6 -->
+<div style="display: none" id="element_04724488875796675"></div></p></div><!-- End Notification 6 -->
+</div>
+</body></html>	<style>body{ background: none !important; } </style>
+Completed 500 Internal Server Error in 1790ms (ActiveRecord: 53.7ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.7ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (94.4ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fX+vAzGbnmeGnnMvrLRUyRZVh7IE/z/CA0fNsPRJxeooxyMWk8aUoRWQI5XdwvhtxhsAhd9vUbE1rTRpKcHIvw==", "user"=>{"email"=>"jakes@baird.com"}}
+  [1m[36m (18.6ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (20.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jakes@baird.com' LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Error saving user with email, jakes@baird.com
+Redirected to http://localhost:3000/
+Completed 302 Found in 90ms (ActiveRecord: 40.3ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o9EfX0pe8Mf3Q5hkmkmRVnid5EkH5F/GPAy2YKD6WQr2aZNK6AP6AWRNyN7rPz3yqNNjftx0MbUK5k+5fXJUXw==", "user"=>{"email"=>"jb@me.com"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jb@me.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1  [["referral_code", "76c11e087f"]]
+  [1m[36mSQL (17.0ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jb@me.com"], ["created_at", "2018-01-23 06:33:27.156891"], ["updated_at", "2018-01-23 06:33:27.156891"], ["referral_code", "76c11e087f"]]
+  [1m[35mSQL (11.1ms)[0m  INSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jb@me.com\n    id: '15'\n    referral_code: 76c11e087f\n    created_at: &1 2018-01-23 06:33:27.156891000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jb@me.com\n          type: *2\n          value: jb@me.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '15'\n          type: *3\n          value: 15\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 76c11e087f\n          type: *2\n          value: 76c11e087f\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 06:33:27.193551"], ["created_at", "2018-01-23 06:33:27.195111"], ["updated_at", "2018-01-23 06:33:27.195111"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  Rendered user_notifier/send_signup_email.html.erb (0.4ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 36.9ms
+
+Sent mail to jb@me.com (2926.6ms)
+Date: Tue, 23 Jan 2018 16:33:27 +1000
+From: jake@goodleads.com.au
+To: jb@me.com
+Message-ID: <5a66d737424fd_113ee3ff359bd7b581070@Jakes-MacBook-Air.local.mail>
+Subject: Thanks for signing up for our amazing app
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title>Notify</title>
+
+<style type="text/css">
+
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+
+*{
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.ReadMsgBody
+{width: 100%; background-color: #ffffff;}
+.ExternalClass
+{width: 100%; background-color: #ffffff;}
+body{width: 100%; height: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;}
+html{width: 100%; background-color: #ffffff;}
+
+@font-face {
+    font-family: 'proxima_novalight';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-light-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_nova_rgregular'; src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-regular-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+@font-face {
+    font-family: 'proxima_novasemibold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-semibold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {
+	font-family: 'proxima_nova_rgbold';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-bold-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+	
+@font-face {
+    font-family: 'proxima_novablack';src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/titan/font/proximanova-black-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    
+@font-face {font-family: 'proxima_novathin';src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot');src: url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.eot?#iefix') format('embedded-opentype'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.woff') format('woff'),url('http://rocketway.net/themebuilder/template/templates/mason/font/proximanova-thin-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+
+p {padding: 0!important; margin-top: 0!important; margin-right: 0!important; margin-bottom: 0!important; margin-left: 0!important; }
+
+.hover:hover {opacity:0.85;filter:alpha(opacity=85);}
+
+.image77 img {width: 77px; height: auto;}
+.avatar125 img {width: 125px; height: auto;}
+.icon61 img {width: 61px; height: auto;}
+.logo img {width: 75px; height: auto;}
+.icon18 img {width: 18px; height: auto;}
+
+</style>
+
+<!-- @media only screen and (max-width: 640px) 
+		   {*/
+		   -->
+<style type="text/css"> @media only screen and (max-width: 640px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		
+} </style>
+<!--
+
+@media only screen and (max-width: 479px) 
+		   {
+		   -->
+<style type="text/css"> @media only screen and (max-width: 479px){
+		body{width:auto!important;}
+		table[class=full2] {width: 100%!important; clear: both; }
+		table[class=mobile2] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter2] {width: 100%!important; text-align: center!important; clear: both; }
+		table[class=full] {width: 100%!important; clear: both; }
+		table[class=mobile] {width: 100%!important; padding-left: 20px; padding-right: 20px; clear: both; }
+		table[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=fullCenter] {width: 100%!important; text-align: center!important; clear: both; }
+		td[class=pad15] {width: 100%!important; padding-left: 15px; padding-right: 15px; clear: both;}
+		.erase {display: none;}
+				
+		}
+} </style>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<!-- Notification 1  -->
+<div style="display: none" id="element_023959988981649527"></div></p></div><!-- End Notification 1 -->
+
+<!-- Notification 2  -->
+<div style="display: none" id="element_09498955956657207"></div></p></div><!-- End Notification 2 -->
+
+<!-- Notification 3 -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#303030"style="background-color: rgb(48, 48, 48);">
+	<tr>
+		<td align="center" style="background-image: url('http://rocketway.net/themebuilder/template/templates/notify/images/not3_bg_image.jpg'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: #303030;"id="not3">
+		
+			
+			<!-- Mobile Wrapper -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+				<tr>
+					<td width="100%" align="center">
+					
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+						
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-radius: 5px; box-shadow: rgba(68, 68, 68, 0.2) 0px 0px 7px; background-color: rgb(255, 255, 255);">
+							<tr>
+								<td width="352" valign="middle" align="center">
+									
+									
+									<div class="sortable_inner ui-sortable">
+									<!-- Start Top -->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+												
+												<!-- Header Text --> 
+												<table width="300" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="30"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]--><a href="syndica.com.au"><img src="https://ibb.co/nHkU8b" alt="syndica" border="0" /></a><!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="40"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 43px; color: #3f4345; line-height: 48px;"class="fullCenter"  >
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Thanks!<!--[if !mso]><!--></span><!--<![endif]-->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+											
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+													<tr>
+														<td width="100%" height="45"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: #ffffff; line-height: 34px;"class="fullCenter"   cu-identify="element_08317003245438217"><span style="font-family: proxima_nova_rgregular, Helvetica;"><b>You'll be first to know when we launch!</b></span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+																		
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="30"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td valign="middle" align="center" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; line-height: 24px;"class="fullCenter"   cu-identify="element_06862991406004695"><span style="font-family: proxima_nova_rgregular, Helvetica;"><span style="font-weight: bold;">Property is evolving</span>. Tell your friends and get access to wholesale property, exclusive opportunities and rewards</span></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<!----------------- Button Center ----------------->
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255); position: relative; left: 0px; top: 0px;">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" align="center" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td>
+																		<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"> 
+																			<tr> 
+																				<td align="center" height="40"bgcolor="#f0f0f0" style="border-radius: 20px; padding-left: 22px; padding-right: 22px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(34, 32, 32); background-color: rgb(240, 240, 240);">
+																					<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
+																						<a href="#" style="color: #222020; font-size:16px; text-decoration: none; line-height:34px; width:100%;" cu-identify="element_0032609847889129906">{:host=&gt;nil}?ref=76c11e087f</a>
+																					<!--[if !mso]><!--></span><!--<![endif]-->
+																				</td> 
+																			</tr> 
+																		</table> 
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" align="center" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td width="100%" height="15"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<div style="display: none" id="element_02803016962145741"></div></p></div>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"class="pad15" style="background-color: rgb(103, 191, 172);">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																<tr>
+																	<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;" class="fullCenter"   cu-identify="element_03382753605643136">	
+																		</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgb(255, 255, 255);">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" bgcolor="#fdba30"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(103, 191, 172);" class="pad15">
+														
+															<table width="240" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+																
+																<tr>
+																	<td width="100%" height="40"></td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												
+											</td>
+										</tr>
+									</table>
+									
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(255, 255, 255);" object="drag-module-small">
+										<tr>
+											<td width="352" valign="middle" align="center">
+													
+												<table width="265" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+													<tr>
+														<td width="265" height="50"></td>
+													</tr>
+												</table>
+																				
+											</td>
+										</tr>
+									</table><!-- End Top -->
+									</div>
+									
+								</td>
+							</tr>
+						</table>
+						
+						<div class="sortable_inner ui-sortable">
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+							<tr>
+								<td width="352" height="30"></td>
+							</tr>
+						</table><!-- End Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile" object="drag-module-small">
+							<tr>
+								<td width="352" valign="middle" align="center">
+								
+									<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
+										<tr>
+											<td width="352" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3f4345; line-height: 24px;"class="fullCenter" ><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]--><!--subscribe--><a href="" style="text-decoration: none; color: #3f4345;" cu-identify="element_05767064471161076"></a><!--unsub--><!--[if !mso]><!--></span><!--<![endif]-->
+											<span  cu-identify="element_04255468931522093"><!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]-->Developer? <a href="mailto:hello@homeique.com">hello@homeique.com</a><!--[if !mso]><!--></span><!--<![endif]--></span>
+											</td>
+										</tr>
+									</table>
+																	
+								</td>
+							</tr>
+						</table>
+						<!-- Space -->
+						<table width="352" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small" cu-identifier="element_03806254836422256">
+							<tr>
+								<td width="352" height="50"></td>
+							</tr>
+							<tr>
+								<td width="352" height="1" style="font-size: 1px; line-height: 1px;">&nbsp;</td>
+							</tr>
+						</table><!-- End Space -->
+						</div>
+			
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+		</td>
+	</tr>
+</table><!-- End Notification 3 -->
+
+<!-- Notification 4  -->
+<div style="display: none" id="element_04438567014494732"></div></p></div><!-- End Notification 4 -->
+
+<!-- Notification 5 -->
+<div style="display: none" id="element_0028553052569139314"></div></p></div><!-- End Notification 5 -->
+
+<!-- Notification 6 -->
+<div style="display: none" id="element_04724488875796675"></div></p></div><!-- End Notification 6 -->
+</div>
+</body></html>	<style>body{ background: none !important; } </style>
+Completed 500 Internal Server Error in 3039ms (ActiveRecord: 35.8ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.8ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.2ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (86.1ms)
