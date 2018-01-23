@@ -4449,3 +4449,64 @@ Processing by UsersController#refer as HTML
   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 6]]
   Rendered users/refer.html.erb within layouts/application (6.0ms)
 Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.6ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 120ms (Views: 42.1ms | ActiveRecord: 66.6ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.8ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (103.1ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (73.2ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ejkL6hv6ckaQQoZ7beu2bBIO4JLSBaEVep5kp9x4xws6o0sUZnrHhXU9x+OAp6rcsL7fYBi4bFS4mAiSsvkJ2w==", "user"=>{"email"=>"jake@lnchr.co"}}
+  [1m[36m (17.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (57.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jake@lnchr.co' LIMIT 1
+  [1m[36mUser Exists (6.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Error saving user with email, jake@lnchr.co
+Redirected to http://localhost:3000/
+Completed 302 Found in 97ms (ActiveRecord: 81.7ms)
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.7ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.8ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (90.1ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fBzmu5Ta9MKDlu3WG4cvWamlj4hg2oMZjO7CzqdA/oM8hqZF6VpBAWbprE72yzPpCxWweqpnTlhO6K77ycEwUw==", "user"=>{"email"=>"jakebaird@test.com"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jakebaird@test.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (8.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."referral_code" = $1 LIMIT 1  [["referral_code", "17afefe14d"]]
+  [1m[36mSQL (26.7ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "referral_code") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jakebaird@test.com"], ["created_at", "2018-01-23 03:41:38.114801"], ["updated_at", "2018-01-23 03:41:38.114801"], ["referral_code", "17afefe14d"]]
+  [1m[35mSQL (12.6ms)[0m  INSERT INTO "delayed_jobs" ("handler", "run_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/object:User\n  raw_attributes:\n    email: jakebaird@test.com\n    id: '7'\n    referral_code: 17afefe14d\n    created_at: &1 2018-01-23 03:41:38.114801000 Z\n    updated_at: *1\n    referrer_id: \n  attributes: !ruby/object:ActiveRecord::AttributeSet\n    attributes: !ruby/object:ActiveRecord::LazyAttributeHash\n      types:\n        id: &3 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Integer\n          precision: \n          scale: \n          limit: \n          range: !ruby/range\n            begin: -2147483648\n            end: 2147483648\n            excl: true\n        email: &2 !ruby/object:ActiveRecord::Type::String\n          precision: \n          scale: \n          limit: \n        referral_code: *2\n        referrer_id: *3\n        created_at: &5 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: &4 !ruby/object:ActiveRecord::ConnectionAdapters::PostgreSQL::OID::DateTime\n            precision: \n            scale: \n            limit: \n        updated_at: &6 !ruby/object:ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter\n          subtype: *4\n      values:\n        id: \n        email: \n        referral_code: \n        referrer_id: \n        created_at: \n        updated_at: \n      additional_types: {}\n      materialized: true\n      delegate_hash:\n        email: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: email\n          value_before_type_cast: jakebaird@test.com\n          type: *2\n          value: jakebaird@test.com\n        id: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: id\n          value_before_type_cast: '7'\n          type: *3\n          value: 7\n        referral_code: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: referral_code\n          value_before_type_cast: 17afefe14d\n          type: *2\n          value: 17afefe14d\n        created_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: created_at\n          value_before_type_cast: *1\n          type: *5\n          value: *1\n        updated_at: !ruby/object:ActiveRecord::Attribute::FromUser\n          name: updated_at\n          value_before_type_cast: *1\n          type: *6\n          value: *1\n        referrer_id: !ruby/object:ActiveRecord::Attribute::FromDatabase\n          name: referrer_id\n          value_before_type_cast: \n          type: *3\n  new_record: false\n  active_record_yaml_version: 0\n"], ["run_at", "2018-01-23 03:41:38.172117"], ["created_at", "2018-01-23 03:41:38.174080"], ["updated_at", "2018-01-23 03:41:38.174080"]]
+  [1m[36m (9.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 88ms (ActiveRecord: 57.8ms)
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jakebaird@test.com"]]
+  [1m[36m (11.5ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1[0m  [["referrer_id", 7]]
+  Rendered users/refer.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 36ms (Views: 22.7ms | ActiveRecord: 11.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (83.9ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (14.5ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (96.8ms)

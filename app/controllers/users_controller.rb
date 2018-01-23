@@ -63,6 +63,20 @@ class UsersController < ApplicationController
     end
   end
 
+class UsersController < ApplicationController
+  def create
+    # Create the user from params
+    @user = User.new(params[:user])
+    if @user.save
+      # Deliver the signup email
+      UserNotifier.send_signup_email(@user).deliver
+      redirect_to(@user, :notice => 'User created')
+    else
+      render :action => 'new'
+    end
+  end
+end
+
   def handle_ip
     # Prevent someone from gaming the site by referring themselves.
     # Presumably, users are doing this from the same device so block
