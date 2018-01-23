@@ -21,9 +21,7 @@ class UsersController < ApplicationController
 
     if @user.save
       cookies[:h_email] = { value: @user.email }
-      UserNotifier.send_signup_email(@user).deliver
       redirect_to '/refer-a-friend'
-
     else
       logger.info("Error saving user with email, #{email}")
       redirect_to root_path, alert: 'Something went wrong!'

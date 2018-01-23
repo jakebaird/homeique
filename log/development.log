@@ -4424,3 +4424,28 @@ Processing by Rails::MailersController#preview as HTML
   Parameters: {"path"=>"user_notifier"}
   Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/railties-4.2.5.2/lib/rails/templates/rails/mailers/mailer.html.erb within layouts/application (9.6ms)
 Completed 200 OK in 39ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (1.8ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (252.3ms)
+Completed 200 OK in 490ms (Views: 268.8ms | ActiveRecord: 67.9ms)
+Processing by Admin::UsersController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (41.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered /Users/lnchr/.rvm/gems/ruby-2.3.0/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (344.1ms)
+Completed 200 OK in 376ms (Views: 315.9ms | ActiveRecord: 52.1ms)
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (6.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jake@lnchr.co"]]
+Redirected to http://localhost:3000/refer-a-friend
+Filter chain halted as :skip_first_page rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 6.9ms)
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "jake@lnchr.co"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = $1  [["referrer_id", 6]]
+  Rendered users/refer.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.6ms)
