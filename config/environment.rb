@@ -6,12 +6,19 @@ Prelaunchr::Application.initialize!
 
 Rails.logger = Logger.new(STDOUT)
 
+
 ActionMailer::Base.smtp_settings = {
-  :user_name => 'test',
-  :password => 'test',
-  :domain => 'homique.com',
+  user_name: ENV["SENDGRID_USERNAME"],
+  password:  ENV["SENDGRID_PASSWORD"],
+  :domain => 'yourdomain.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,
   :enable_starttls_auto => true
 }
+
+
+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
+
+
+
