@@ -16,28 +16,28 @@ class User < ActiveRecord::Base
   REFERRAL_STEPS = [
     {
       'count' => 5,
-      'html' => 'Free <b>green</b> Member<br>Round 4 Access', 
+      'html' => '<b>Green</b> Membership', 
       'class' => 'two',
       'image' =>  ActionController::Base.helpers.asset_path(
         'img/blade-explain@2x.png')
     },
     {
       'count' => 15,
-      'html' => 'Free <b>Silver</b> Member <br> Round 3 Access ',
+      'html' => '<b>Silver</b> Membership',
       'class' => 'three',
       'image' => ActionController::Base.helpers.asset_path(
         'img/blade-explain@2x.png')
     },
     {
       'count' => 30 ,
-      'html' => 'Free <b>Gold</b> Member <br> Round 2 Access <br> -Exclusive Finance Deals',
+      'html' => '<b>Gold</b><br> Membership <br>',
       'class' => 'four',
       'image' => ActionController::Base.helpers.asset_path(
         'img/blade-explain@2x.png')
     },
     {
       'count' => 60,
-      'html' => 'Free <b>Platinum</b> Member <br>- Round 1 Access <br> - <b>Invite Only Opportunities</b> <br> -Exclusive Finance Deals ',
+      'html' => '<b>Platinum</b> Membership',
       'class' => 'five',
       'image' => ActionController::Base.helpers.asset_path(
         'img/blade-explain@2x.png')
