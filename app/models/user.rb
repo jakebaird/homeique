@@ -33,14 +33,14 @@ class User < ActiveRecord::Base
       'html' => '<b>Gold</b><br> Membership <br>',
       'class' => 'four',
       'image' => ActionController::Base.helpers.asset_path(
-        'img/Gold@2x.jpg')
+        'img/gold@2x.jpg')
     },
     {
       'count' => 60,
       'html' => '<b>Platinum</b> Syndicate Membershipr',
       'class' => 'five',
       'image' => ActionController::Base.helpers.asset_path(
-        'img/Platinum@2x.jpg')
+        'img/platinum@2x.jpg')
     }
   ]
 
