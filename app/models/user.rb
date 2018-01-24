@@ -19,28 +19,28 @@ class User < ActiveRecord::Base
       'html' => '<b>Green</b> Membership', 
       'class' => 'two',
       'image' =>  ActionController::Base.helpers.asset_path(
-        'img/blade-explain@2x.png')
+        'img/green@2x.jpg')
     },
     {
       'count' => 15,
       'html' => '<b>Silver</b> Membership',
       'class' => 'three',
       'image' => ActionController::Base.helpers.asset_path(
-        'img/blade-explain@2x.png')
+        'img/silver@2x.jpg')
     },
     {
       'count' => 30 ,
       'html' => '<b>Gold</b><br> Membership <br>',
       'class' => 'four',
       'image' => ActionController::Base.helpers.asset_path(
-        'img/blade-explain@2x.png')
+        'img/Gold@2x.jpg')
     },
     {
       'count' => 60,
-      'html' => '<b>Platinum</b> Membership',
+      'html' => '<b>Platinum</b> Syndicate Membershipr',
       'class' => 'five',
       'image' => ActionController::Base.helpers.asset_path(
-        'img/blade-explain@2x.png')
+        'img/Platinum@2x.jpg')
     }
   ]
 
